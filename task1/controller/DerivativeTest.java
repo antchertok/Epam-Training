@@ -1,10 +1,10 @@
 package by.epam.task1.controller;
 
 import by.epam.task1.model.entity.AccumulativeInsurance;
-import by.epam.task1.model.entity.Obligation;
+import by.epam.task1.model.entity.Insurance;
 import by.epam.task1.view.View;
 import by.epam.task1.model.Derivative;
-import by.epam.task1.model.entity.Insurance;
+
 import java.util.Comparator;
 
 import static by.epam.task1.model.util.DerivativeMaker.DERIVATIVE_MAKER;
@@ -17,17 +17,17 @@ public class DerivativeTest {
         View.print("TOTAL: " + derivative.calculateTotal());
 
         View.print(derivative.toString());
-        derivative.addObligation(new AccumulativeInsurance(250, "business"));
+        derivative.addInsurance(new AccumulativeInsurance(250, "business"));
 
-        derivative.sortobligations(new Comparator<Obligation>() {
+        derivative.sortInsurances(new Comparator<Insurance>() {
             @Override
-            public int compare(Obligation o1, Obligation o2) {
+            public int compare(Insurance o1, Insurance o2) {
                 return -o1.compareTo(o2);
             }
         });
 
         View.print(derivative.toString());
-        View.print(derivative.findobligations("Cost", 1200, 1700));
+        View.print(derivative.findInsurances("Cost", 1200, 1700));
     }
 
 }

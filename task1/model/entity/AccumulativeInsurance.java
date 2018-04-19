@@ -1,6 +1,6 @@
 package by.epam.task1.model.entity;
 
-public class AccumulativeInsurance extends Obligation {
+public class AccumulativeInsurance extends Insurance {
 
     private static final int RISK_LEVEL = 0;
 
@@ -10,7 +10,7 @@ public class AccumulativeInsurance extends Obligation {
 
     @Override
     public String toString() {
-        return "Accumulative insurance. Sphere: " + obligationSphere + ", risk level:"
+        return "Accumulative insurance. Sphere: " + insuranceSphere + ", risk level:"
                 + RISK_LEVEL + ", cost:" + cost;
     }
 }

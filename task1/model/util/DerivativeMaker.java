@@ -3,7 +3,6 @@ package by.epam.task1.model.util;
 
 import by.epam.task1.model.Derivative;
 import by.epam.task1.model.entity.Insurance;
-import by.epam.task1.model.entity.Obligation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,20 +13,20 @@ public enum DerivativeMaker {
 
     private static final int MIN_COST = 100;
 
-    public Derivative makeDerivative(int amountOfObligations, int possibleCost, int possibleRisk) {
-        List<Obligation> obligations = new ArrayList<>();
+    public Derivative makeDerivative(int amountOfInsurances, int possibleCost, int possibleRisk) {
+        List<Insurance> insurances = new ArrayList<>();
         Random random = new Random();
 
-        for (int i = 0; i < amountOfObligations; i++) {
-            obligations.add(new Insurance(random.nextInt(possibleRisk),
-                    random.nextInt(possibleCost) + MIN_COST, getObligationType()));
+        for (int i = 0; i < amountOfInsurances; i++) {
+            insurances.add(new var.Insurance(random.nextInt(possibleRisk),
+                    random.nextInt(possibleCost) + MIN_COST, getInsuranceType()));
         }
 
-        return new Derivative("Insurances", obligations);
+        return new Derivative("Insurances", insurances);
     }
 
-    private String getObligationType(){
+    private String getInsuranceType(){
         Random random = new Random();
-        return ObligationSphere.values()[random.nextInt(ObligationSphere.values().length)].toString();
+        return InsuranceSphere.values()[random.nextInt(InsuranceSphere.values().length)].toString();
     }
 }
