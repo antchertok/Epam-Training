@@ -17,7 +17,7 @@ public class DerivativeTest {
         View.print("TOTAL: " + derivative.calculateTotal());
 
         View.print(derivative.toString());
-        derivative.addInsurance(new AccumulativeInsurance(250, "business"));
+        derivative.addInsurance(new AccumulativeInsurance(1250, "business", 3, 5));
 
         derivative.sortInsurances(new Comparator<Insurance>() {
             @Override
