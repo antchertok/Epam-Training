@@ -36,7 +36,7 @@ public class AccumulativeInsurance extends Insurance {
 
     @Override
     public int getCost() {
-        return ExtraMoneyCalculator.calcExtraMoney(this);
+        return ExtraMoneyCalculator.calcExtraMoney(this, cost);
     }
 
 }
