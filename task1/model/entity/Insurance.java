@@ -3,9 +3,9 @@ package by.epam.task1.model.entity;
 import java.util.Objects;
 
 public class Insurance implements Comparable{
-    int riskLevel;
-    int cost;
-    String insuranceSphere;
+    private int riskLevel;
+    private int cost;
+    private String insuranceSphere;
 
     public Insurance(){
         this(100, 0, "none");
