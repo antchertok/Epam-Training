@@ -1,7 +1,12 @@
 package by.epam.task1.model.entity;
 
+import by.epam.task1.util.ExtraMoneyCalculator;
+
 public class AccumulativeInsurance extends Insurance {
     private static final int RISK_LEVEL = 0;
+    private int riskLevel;
+    private int cost;
+    private String insuranceSphere;
     private int percentsPerYear;
     private int yearsPassed;
 
@@ -13,7 +18,7 @@ public class AccumulativeInsurance extends Insurance {
 
     @Override
     public String toString() {
-        return "Accumulative insurance. Sphere: " + insuranceSphere + ", risk level:"
+        return getClass().getName()+ "Accumulative insurance. Sphere: " + insuranceSphere + ", risk level:"
                 + RISK_LEVEL + ", cost:" + getCost();
     }
 
@@ -31,16 +36,7 @@ public class AccumulativeInsurance extends Insurance {
 
     @Override
     public int getCost() {
-        return calcExtraMoney();
+        return ExtraMoneyCalculator.calcExtraMoney(this);
     }
 
-    private int calcExtraMoney() {
-        double formerCost = cost;
-        double multiplier = 1 + yearsPassed / 100.;
-
-        for (int i = 0; i < yearsPassed; i++) {
-            formerCost *= multiplier;
-        }
-        return (int) formerCost;
-    }
 }
