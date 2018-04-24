@@ -2,22 +2,25 @@ package by.epam.task1.controller;
 
 import by.epam.task1.model.entity.AccumulativeInsurance;
 import by.epam.task1.model.entity.Insurance;
-import by.epam.task1.view.View;
 import by.epam.task1.model.Derivative;
+import by.epam.task1.util.DerivativeMaker;
+import by.epam.task1.util.InsuranceFinder;
 
 import java.util.Comparator;
 
-import static by.epam.task1.model.util.DerivativeMaker.DERIVATIVE_MAKER;
+
 
 public class DerivativeTest {
 
     public static void main(String[] args) {
-        Derivative derivative = DERIVATIVE_MAKER.makeDerivative(10, 2000, 100);
+        DerivativeMaker derivativeMaker = new DerivativeMaker();
+        Derivative derivative = derivativeMaker.makeDerivative(10, 2000, 100);
 
-        View.print("TOTAL: " + derivative.calculateTotal());
+        System.out.println("TOTAL: " + derivative.calculateTotal());
 
-        View.print(derivative.toString());
+        System.out.println(derivative.toString());
         derivative.addInsurance(new AccumulativeInsurance(1250, "business", 3, 5));
+
 
         derivative.sortInsurances(new Comparator<Insurance>() {
             @Override
@@ -26,8 +29,10 @@ public class DerivativeTest {
             }
         });
 
-        View.print(derivative.toString());
-        View.print(derivative.findInsurances("Cost", 1200, 1700));
+        System.out.println(derivative.toString());
+
+        InsuranceFinder insuranceFinder = new InsuranceFinder();
+        System.out.println(insuranceFinder.findInsurancesWithCost(derivative, 1200, 1700));
     }
 
 }
