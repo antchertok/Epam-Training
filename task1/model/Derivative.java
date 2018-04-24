@@ -4,7 +4,6 @@ import by.epam.task1.model.entity.Insurance;
 
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Derivative {
@@ -35,30 +34,6 @@ public class Derivative {
         Collections.sort(insuranceList, comparator);
     }
 
-    public List<Insurance> findInsurances(String parameter, int min, int max) {
-        List<Insurance> result = new LinkedList<>();
-
-        switch (parameter.toLowerCase()) {
-            case "cost":
-                for (Insurance insurance : insuranceList) {
-                    if (insurance.getCost() >= min && insurance.getCost() <= max) {
-                        result.add(insurance);
-                    }
-                }
-                break;
-
-            case "risk":
-                for (Insurance insurance : insuranceList) {
-                    if (insurance.getRiskLevel() >= min && insurance.getRiskLevel() <= max) {
-                        result.add(insurance);
-                    }
-                }
-                break;
-        }
-
-        return result;
-    }
-
     public String getDerivativeTitle() {
         return derivativeTitle;
     }
@@ -69,10 +44,6 @@ public class Derivative {
 
     public List getInsuranceList() {
         return insuranceList;
-    }
-
-    public void setInsuranceList(List insuranceList) {
-        this.insuranceList = insuranceList;
     }
 
     public int getSize(){
