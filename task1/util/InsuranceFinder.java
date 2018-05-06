@@ -8,6 +8,14 @@ import java.util.List;
 
 public class InsuranceFinder {
 
+    /**
+     * Allows to find insurances which appropriate given range
+     *
+     * @param derivative derivative under consideration
+     * @param min lower range limit
+     * @param max upper range limit
+     * @return list filled with appropriate insurances
+     */
     public List<Insurance> findInsurancesWithRisk(Derivative derivative, int min, int max) {
         List<Insurance> result = new LinkedList<>();
         List<Insurance> insuranceList = derivative.getInsuranceList();
