@@ -5,7 +5,7 @@ import by.epam.task1.util.ExtraMoneyCalculator;
 import java.util.Objects;
 
 /**
- * An instance of this class represents a single  accumulative insurance
+ * An instance of this class represents a single accumulative insurance
  * Extends {@link Insurance Insurance}
  */
 
