@@ -2,6 +2,9 @@ package by.epam.task1.model.entity;
 
 import java.util.Objects;
 
+/**
+ * An instance of this class represents a single insurance 
+ */
 public class Insurance implements Comparable{
     private int riskLevel;
     private int cost;
@@ -39,18 +42,20 @@ public class Insurance implements Comparable{
     }
 
     @Override
-    public int hashCode(){
-        return 41 * riskLevel + 13 * cost;
+    public int hashCode() {
+        return 41 * riskLevel + 13 * cost + insuranceSphere.hashCode();
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Insurance)) return false;
-        Insurance insurance = (Insurance) o;
-        return riskLevel == insurance.riskLevel &&
-                cost == insurance.cost &&
-                Objects.equals(insuranceSphere, insurance.insuranceSphere);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (null == obj) return false;
+        if (getClass() != obj.getClass()) return false;
+
+        Insurance insurance = (Insurance) obj;
+        return riskLevel == insurance.riskLevel
+                && cost == insurance.cost
+                && insuranceSphere.equals(insurance.insuranceSphere);
     }
 
     @Override
