@@ -3,14 +3,14 @@ package by.epam.task1.model.entity;
 import java.util.Objects;
 
 /**
- * An instance of this class represents a single insurance 
+ * An instance of this class represents insurance
  */
-public class Insurance implements Comparable{
+public class Insurance implements Comparable {
     private int riskLevel;
     private int cost;
     private String insuranceSphere;
 
-    public Insurance(){
+    public Insurance() {
         this(100, 0, "none");
     }
 
