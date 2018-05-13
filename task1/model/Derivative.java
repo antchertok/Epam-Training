@@ -6,6 +6,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * This class represents derivative that stores {@link Insurance insurances}.
+ * It also provides access to them and allows them to be sorted according
+ * to the transmitted comparator.
+ */
 public class Derivative {
 
     private String derivativeTitle;
@@ -46,16 +51,16 @@ public class Derivative {
         return insuranceList;
     }
 
-    public int getSize(){
+    public int getSize() {
         return insuranceList.size();
     }
 
-    public void addInsurance(Insurance insurance){
+    public void addInsurance(Insurance insurance) {
         insuranceList.add(insurance);
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return getDerivativeTitle() + ": " + insuranceList.toString();
     }
 
