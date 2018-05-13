@@ -5,20 +5,21 @@ import by.epam.task1.model.entity.Insurance;
 import by.epam.task1.model.Derivative;
 import by.epam.task1.util.DerivativeMaker;
 import by.epam.task1.util.InsuranceFinder;
+import org.apache.log4j.Logger;
 
 import java.util.Comparator;
 
 
-
 public class DerivativeTest {
+    private static final Logger logger = Logger.getLogger(DerivativeTest.class.getName());
 
     public static void main(String[] args) {
         DerivativeMaker derivativeMaker = new DerivativeMaker();
         Derivative derivative = derivativeMaker.makeDerivative(10, 2000, 100);
 
-        System.out.println("TOTAL: " + derivative.calculateTotal());
+        logger.info("TOTAL: " + derivative.calculateTotal());
 
-        System.out.println(derivative.toString());
+        logger.info(derivative.toString());
         derivative.addInsurance(new AccumulativeInsurance(1250, "business", 3, 5));
 
 
@@ -29,10 +30,10 @@ public class DerivativeTest {
             }
         });
 
-        System.out.println(derivative.toString());
+        logger.info(derivative.toString());
 
         InsuranceFinder insuranceFinder = new InsuranceFinder();
-        System.out.println(insuranceFinder.findInsurancesWithCost(derivative, 1200, 1700));
+        logger.info(insuranceFinder.findInsurancesWithCost(derivative, 1200, 1700));
     }
 
 }
