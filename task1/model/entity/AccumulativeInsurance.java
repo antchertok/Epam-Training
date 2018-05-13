@@ -25,8 +25,8 @@ public class AccumulativeInsurance extends Insurance {
 
     @Override
     public String toString() {
-        return getClass().getName() + "Accumulative insurance. Sphere: " + insuranceSphere 
-                + ", persents per year:" + percentsPerYear + ", years passed:" 
+        return getClass().getName() + "Accumulative insurance. Sphere: " + insuranceSphere
+                + ", persents per year:" + percentsPerYear + ", years passed:"
                 + yearsPassed + ", cost:" + getCost();
     }
 
