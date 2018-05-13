@@ -8,7 +8,7 @@ public class ExtraMoneyCalculator {
      * Calculates how much money accumulative derivative gained by this day
      *
      * @param aInsurance accumulative insurance under consideration
-     * @param firstCost initial cost
+     * @param firstCost  initial cost
      * @return initial cost plus extra money gained currently
      */
     public static int calcExtraMoney(AccumulativeInsurance aInsurance, double firstCost) {
