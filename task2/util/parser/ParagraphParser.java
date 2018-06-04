@@ -24,7 +24,7 @@ public class ParagraphParser extends Parser {
     public Component parse(String text) {
         ResourceBundle bundle = ResourceBundle.getBundle("regex", Locale.ENGLISH);
         Matcher paragraph = Pattern.compile(bundle.getString("paragraph")).matcher(text);
-        ArrayList<Component> branches = new ArrayList<>();
+        Composite branches = new Composite();
 
         while (paragraph.find()) {
             Parser nextParser = getNextParser();
@@ -50,6 +50,6 @@ public class ParagraphParser extends Parser {
                 branches.add(new Leaf(paragraph.group()));
             }
         }
-        return new Composite(branches);
+        return branches;
     }
 }
