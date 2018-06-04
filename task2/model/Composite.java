@@ -9,7 +9,12 @@ public class Composite implements Component {
     private ArrayList<Component> branches;
 
     public Composite(ArrayList<Component> branches) {
-        this.branches = branches;
+        this.branches = new ArrayList<>();
+        this.branches.addAll(branches);
+    }
+
+    public Composite() {
+        this.branches = new ArrayList<>();
     }
 
     @Override
@@ -26,6 +31,10 @@ public class Composite implements Component {
         return false;
     }
 
+    public void add(Component component){
+        branches.add(component);
+    }
+    
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
