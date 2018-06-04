@@ -25,7 +25,7 @@ public class WordParser extends Parser {
         ResourceBundle bundle = ResourceBundle.getBundle("regex", Locale.ENGLISH);
         Matcher matcher = Pattern.compile(bundle.getString("word")).matcher(text);
         Parser nextParser = getNextParser();
-        ArrayList<Component> branches = new ArrayList<>();
+        Composite branches = new Composite();
 
         if (nextParser != null) {
             while (matcher.find()) {
@@ -36,7 +36,6 @@ public class WordParser extends Parser {
                 branches.add(new Leaf(matcher.group()));
             }
         }
-        return new Composite(branches);
-
+        return branches;
     }
 }
