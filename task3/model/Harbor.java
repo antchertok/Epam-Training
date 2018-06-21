@@ -39,7 +39,7 @@ public enum Harbor {
      * If they absence it throws exception.
      *
      * @return available pier
-     * @throws PierUnavailableException
+     * @throws PierUnavailableException if there is no available piers
      */
     public synchronized Pier letMoor() throws PierUnavailableException {
         try {
@@ -71,7 +71,7 @@ public enum Harbor {
      * This method transfers cargo to warehouse.
      *
      * @param cargo weight of cargo for transferring
-     * @throws InvalidCargoException
+     * @throws InvalidCargoException if there is no empty space for more cargo
      */
     private void loadWarehouse(int cargo) throws InvalidCargoException {
         if (capacity + cargo < WAREHOUSE_CAPACITY) {
