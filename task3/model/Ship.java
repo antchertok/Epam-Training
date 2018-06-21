@@ -6,17 +6,21 @@ import org.apache.log4j.Logger;
 
 import java.util.Random;
 
-public class Ship extends Thread {
+/**
+ * Instances of this class represent a single ship acting in it's personal thread.
+ */
+public class Ship implements Runnable {
     private static final Logger LOGGER = Logger.getLogger("Ship");
+    private static int amountOfShips;
     private final int shipNumber;
     private final int MAX_CAPACITY = 10;
     private int cargo;
     private Harbor harbor;
 
-    public Ship(Harbor harbor, int cargo, int shipNumber) {
+    public Ship(Harbor harbor, int cargo) {
         this.harbor = harbor;
         this.cargo = cargo;
-        this.shipNumber = shipNumber;
+        this.shipNumber = ++amountOfShips;
     }
 
     public int getMaxCapacity() {
@@ -28,12 +32,16 @@ public class Ship extends Thread {
     }
 
     public void setCargo(int newCargo) throws InvalidCargoException {
-        LOGGER.info("Cargo of ship № " + shipNumber + " before loading: " + cargo + " tons.");
         if (newCargo > MAX_CAPACITY || newCargo < 0) {
-            throw new InvalidCargoException();
+            throw new InvalidCargoException("Invalid cargo");
+        }
+        int difference = newCargo - cargo;
+        if (difference > 0) {
+            LOGGER.info("Ship № " + shipNumber + " was loaded with " + difference + " tons");
+        } else {
+            LOGGER.info("From the ship № " + shipNumber + " was unloaded " + -difference + " tons");
         }
         cargo = newCargo;
-        LOGGER.info("Cargo of ship № " + shipNumber + ": " + cargo + " tons.");
     }
 
     @Override
@@ -42,8 +50,9 @@ public class Ship extends Thread {
         Random random = new Random();
         try {
             pier = harbor.letMoor();
-            pier.unloadShip(this, random.nextInt(8)+1);
-            pier.loadShip(this, random.nextInt(6));
+            LOGGER.info("Ship № " + shipNumber + " moored");
+            pier.unloadShip(this, random.nextInt(8) + 1);
+            pier.loadShip(this, random.nextInt(5) + 1);
         } catch (PierUnavailableException e) {
             LOGGER.error("Ship № " + shipNumber + " left harbor without service");
         } catch (InvalidCargoException e) {
