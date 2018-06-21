@@ -1,18 +1,23 @@
 package by.epam.task3.controller;
 
-import by.epam.task3.model.Harbor;
 import by.epam.task3.model.Ship;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static by.epam.task3.model.Harbor.HARBOR;
 
-//Извиняюсь за загрузку такого варианта. В ближайшее время исправлю.
 public class MultitaskingTest {
+    private static final int AMOUNT_OF_SHIPS = 26;
+    private static final int DEFAULT_CARGO = 6;
+
     public static void main(String[] args) {
+        ExecutorService exec = Executors.newCachedThreadPool();
 
-        Harbor harbor = HARBOR;
-
-        for(int i= 1; i < 27; i++){
-            new Ship(harbor,6, i).start();
+        for (int i = 0; i < AMOUNT_OF_SHIPS; i++) {
+            exec.execute(new Ship(HARBOR, DEFAULT_CARGO));
         }
+
+        exec.shutdown();
     }
 }
