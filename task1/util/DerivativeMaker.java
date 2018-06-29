@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class DerivativeMaker {
     private static final int MIN_COST = 100;
-    private static final Logger logger = Logger.getLogger(DerivativeMaker.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(DerivativeMaker.class.getName());
 
     /**
      * Makes derivative for testing business-logic
@@ -25,19 +25,19 @@ public class DerivativeMaker {
     public Derivative makeDerivative(int amountOfInsurances, int possibleCost, int possibleRisk) {
         List<Insurance> insurances = new ArrayList<>();
         Random random = new Random();
-        logger.debug("Parameters for new derivative:");
-        logger.debug("Amount of insurances: " + amountOfInsurances);
-        logger.debug("Max possible cost: " + possibleCost);
-        logger.debug("");
+        LOGGER.debug("Parameters for new derivative:");
+        LOGGER.debug("Amount of insurances: " + amountOfInsurances);
+        LOGGER.debug("Max possible cost: " + possibleCost);
+        LOGGER.debug("");
 
         for (int i = 0; i < amountOfInsurances; i++) {
             Insurance insurance = new Insurance(random.nextInt(possibleRisk),
                     random.nextInt(possibleCost) + MIN_COST, getInsuranceType());
             insurances.add(insurance);
-            logger.info("Generated insurance: " + insurance.toString());
+            LOGGER.info("Generated insurance: " + insurance.toString());
         }
 
-        logger.info("Making derivative completed");
+        LOGGER.info("Making derivative completed");
         return new Derivative("Insurances", insurances);
     }
 
