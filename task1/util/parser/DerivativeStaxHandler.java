@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class DerivativeStaxHandler implements DerivativeParser{
+public class DerivativeStaxHandler implements DerivativeParser {
     private static final Logger LOGGER = Logger.getLogger(DerivativeStaxHandler.class.getName());
 
     public Derivative parse(String path) {
@@ -74,29 +74,6 @@ public class DerivativeStaxHandler implements DerivativeParser{
         }
 
         return derivative;
-    }
-
-    public static void main(String[] args) {
-        DerivativeSaxHandler dsh = new DerivativeSaxHandler();
-
-
-            Derivative derivative = dsh.parse("C:\\Users\\-\\IdeaProjects\\StartProjects\\src\\by\\epam\\task1\\data\\deriv.xml");
-            System.out.println(derivative.toString());
-
-        DerivativeDomParser domParser = new DerivativeDomParser();
-//            InputStream xml = new FileInputStream("C:\\Users\\-\\IdeaProjects\\StartProjects\\src");
-//            XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-//            XMLStreamReader reader = inputFactory.createXMLStreamReader(xml);
-        derivative = domParser.parse("C:\\Users\\-\\IdeaProjects\\StartProjects\\src\\by\\epam\\task1\\data\\deriv.xml");
-        System.out.println(derivative.toString());
-
-
-            derivative = new DerivativeStaxHandler().parse("C:\\Users\\-\\IdeaProjects\\StartProjects\\src\\by\\epam\\task1\\data\\deriv.xml");
-            System.out.println(derivative.toString());
-
-
-
-
     }
 
 }
