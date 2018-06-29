@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<derivative>
+	<insurance isAccumulative="no">
+		<risk>70</risk>
+		<cost>5500</cost>
+		<sphere>Property</sphere>
+	</insurance>
+
+	<insurance isAccumulative="yes">
+		<risk>30</risk>
+		<cost>2500</cost>
+		<sphere>Health</sphere>
+	</insurance>
+
+	<insurance isAccumulative="no">
+		<risk>80</risk>
+		<cost>7000</cost>
+		<sphere>Business</sphere>
+	</insurance>
+</derivative>
