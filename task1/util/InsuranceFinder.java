@@ -2,7 +2,6 @@ package by.epam.task1.util;
 
 import by.epam.task1.model.Derivative;
 import by.epam.task1.model.entity.Insurance;
-import org.apache.log4j.Logger;
 
 import java.util.LinkedList;
 import java.util.List;
