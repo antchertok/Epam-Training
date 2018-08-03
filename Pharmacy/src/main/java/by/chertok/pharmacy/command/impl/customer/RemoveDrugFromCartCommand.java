@@ -16,7 +16,6 @@ public class RemoveDrugFromCartCommand implements ICommand {
      * @return an object that contains url and option whether to send redirect or
      * to go forward
      */
-    //TODO CLEAN
     @Override
     public Path execute(Wrapper wrapper) {
         Order order = (Order)wrapper.getSessionAttribute("order");
@@ -34,11 +33,8 @@ public class RemoveDrugFromCartCommand implements ICommand {
                 wrapper.setSessionAttribute("total", total - price * amount);
                 wrapper.setSessionAttribute("order", order);
             }
-//            return path;
         } catch (NumberFormatException e){
             wrapper.setRequestAttribute("illegalDrugId", "Failed to remove drug");
-//            return path;
-//            request.getRequestDispatcher("profile.jsp").forward(request,response);
         }
         return path;
     }
