@@ -46,26 +46,6 @@ public class JdbcHelper {
         }
     }
 
-//    public int executeManyUpdates(String[] sqlRequests, Object[][] parameters) throws DaoException{
-//        if(sqlRequests.length != parameters.length){
-//            throw new DaoException("Invalid amount of arguments");
-//        }
-//
-//        try (Connection connection = connectionPool.getConnection()){
-//            PreparedStatement statement = connection.prepareStatement(sqlRequests[0]);
-//            buildStatement(statement, parameters[0]);
-//
-//            for(int i = 1; i < sqlRequests.length; i++){
-//                statement.addBatch();
-//            }
-//
-//        }catch (InterruptedException | SQLException e){
-//            throw new DaoException(e);
-//        }
-//    }
-
-
-    //TODO ЗАПИЛИТЬ
     /**
      * Method for making UPDATE, DELETE and INSERT requests to util
      *
@@ -215,7 +195,6 @@ public class JdbcHelper {
     private PreparedStatement buildStatement(PreparedStatement statement, Object[] parameters)
             throws SQLException {
         for (int i = 0; i < parameters.length; i++) {
-//            statement.setString(i+1, (String) parameters[i]);
             if (parameters[i] instanceof Number) {
                 statement.setString(i + 1, String.valueOf(parameters[i]));
             } else if (parameters[i] instanceof LocalDateTime) {
