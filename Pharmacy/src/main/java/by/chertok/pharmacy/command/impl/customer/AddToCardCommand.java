@@ -47,7 +47,7 @@ public class AddToCardCommand implements ICommand {
 
             if (isAvailable(drugId, userId)) {
                 order.addDrug(drugId, amount);
-                wrapper.setSessionAttribute("order", order);// TODO: SHOULD I RENEW IT??!!
+                wrapper.setSessionAttribute("order", order);
                 wrapper.setSessionAttribute("drugsOrdered", ++drugsOrdered);
                 wrapper.setSessionAttribute("total", total + price * amount);
                 wrapper.setRequestAttribute("infoCardMsg", "Success");
