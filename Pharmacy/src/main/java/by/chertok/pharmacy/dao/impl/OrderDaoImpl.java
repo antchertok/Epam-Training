@@ -34,16 +34,12 @@ public class OrderDaoImpl implements OrderDao {
             if (resultSet.getLong("order_id") != currentId) {
                 currentId = resultSet.getLong("order_id");
                 currentOrder = new Order(resultSet.getLong("order_id"));
-//                currentOrder.setOrderDate(LocalDateTime.ofInstant(resultSet.getDate("order_date").toInstant(), ZoneId.systemDefault()));
                 currentOrder.setOrderDate(resultSet.getTimestamp("order_date").toLocalDateTime());
                 currentOrder.setPharmacistId(resultSet.getLong("pharmacist_id"));
                 currentOrder.setCustomerId(resultSet.getLong("customer_id"));
                 currentOrder.addDrug(resultSet.getLong("drug_id"),
                         resultSet.getInt("amount"));
             } else {
-//                if (currentOrder == null) {
-//                    currentOrder = new Order(resultSet.getLong("order_id"));
-//                }
                 currentOrder.addDrug(resultSet.getLong("drug_id"),
                         resultSet.getInt("amount"));
             }
@@ -99,9 +95,7 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public int update(Order entity) {
-        throw new UnsupportedOperationException();//TODO: CAN I DO THAT?
-//        String updateQuery = "";
-//        return jdbcHelper.executeUpdate(updateQuery, new Object[]{}) > 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
