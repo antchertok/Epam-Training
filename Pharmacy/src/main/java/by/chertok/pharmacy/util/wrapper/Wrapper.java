@@ -50,9 +50,6 @@ public class Wrapper {
      * @param value new value for the attribute
      */
     public void setRequestAttribute(String name, Object value) {
-//        if(attributes.containsKey(name)){
-////            attributes.put(name, value);
-////       }
         attributes.put(name, value);
     }
 
@@ -63,11 +60,6 @@ public class Wrapper {
      * @return value of this attribute
      */
     public Object getRequestAttribute(String name){
-//        if(attributes.containsKey(name)){
-//            return attributes.get(name);
-//        }
-////        FIX IT!!!
-//        throw new IllegalArgumentException();
         return attributes.get(name);
     }
 
@@ -78,11 +70,6 @@ public class Wrapper {
      * @return value of this parameter
      */
     public String getRequestParameter(String name){
-//        if(parameters.containsKey(name)){
-//            return parameters.get(name);
-//        }
-//        //        TODO FIX IT!!!
-//        throw new IllegalArgumentException();
         return parameters.get(name);
     }
 
@@ -93,9 +80,6 @@ public class Wrapper {
      * @param value new value for this attribute
      */
     public void setSessionAttribute(String name, Object value){
-//        if(sessionParameters.containsKey(name)){
-//            sessionParameters.put(name, value);
-//        }
         sessionParameters.put(name, value);
     }
 
@@ -106,11 +90,6 @@ public class Wrapper {
      * @return value of this attribute
      */
     public Object getSessionAttribute(String name){
-//        if(sessionParameters.containsKey(name)){
-//            return sessionParameters.get(name);
-//        }
-////        FIX IT!!!
-//        throw new IllegalArgumentException();
         return sessionParameters.get(name);
     }
 
