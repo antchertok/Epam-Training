@@ -26,7 +26,7 @@ public class DrugServiceImpl implements DrugService {
     public List<Drug> readAll() throws ServiceException {
         try{
             return drugDao.readAll();
-        } catch(DaoException e){//TODO запилить processDaoException(logger, throwable) throws ServiceException
+        } catch(DaoException e){
             LOGGER.error(e.getMessage());
             if(e.getCause() instanceof EmptyResultException){
                 return Collections.EMPTY_LIST;
